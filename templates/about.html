@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}TürkiyeGPT - Hakkında{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="container">
+        <h1 class="page-title">
+            <i class="fas fa-info-circle"></i>
+            Proje Hakkında
+        </h1>
+        
+        <div class="about-content">
+            <div class="about-card">
+                <h2><i class="fas fa-bullseye"></i> Proje Amacı</h2>
+                <p>
+                    TürkiyeGPT, Türkiye'nin zengin turizm potansiyelini yapay zeka teknolojisi ile birleştirerek, 
+                    kullanıcılara Türkiye'nin tarihi, kültürel ve doğal güzellikleri hakkında detaylı bilgi sunan 
+                    RAG (Retrieval Augmented Generation) tabanlı bir chatbot projesidir.
+                </p>
+                <p>
+                    Bu proje, Akbank GenAI Bootcamp final projesi kapsamında geliştirilmiştir ve modern yapay zeka 
+                    teknolojilerinin turizm sektöründe nasıl kullanılabileceğini göstermektedir.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-database"></i> Veri Seti</h2>
+                <p>
+                    Proje, özel olarak hazırlanmış bir Türkiye turizm veri setini kullanmaktadır:
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>40+ turistik yer</strong> ve tarihi eser bilgisi</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>7 coğrafi bölge</strong> ve 20+ şehir kapsama</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>UNESCO Dünya Mirası</strong> alanları</li>
+                    <li><i class="fas fa-check-circle"></i> Detaylı açıklamalar, tarihi bilgiler ve özellikler</li>
+                    <li><i class="fas fa-check-circle"></i> Ziyaret saatleri ve giriş ücretleri</li>
+                </ul>
+                <p>
+                    Veri seti JSON formatında yapılandırılmış olup, her kayıt şehir, bölge, kategori, açıklama 
+                    ve metadata bilgilerini içermektedir.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-cogs"></i> Çözüm Mimarisi</h2>
+                <p>
+                    TürkiyeGPT, modern RAG (Retrieval Augmented Generation) mimarisini kullanmaktadır:
+                </p>
+                
+                <div class="architecture-diagram">
+                    <div class="arch-step">
+                        <div class="arch-icon"><i class="fas fa-user"></i></div>
+                        <h4>1. Kullanıcı Sorusu</h4>
+                        <p>Kullanıcı web arayüzünden soru sorar</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step">
+                        <div class="arch-icon"><i class="fas fa-search"></i></div>
+                        <h4>2. Vektör Arama</h4>
+                        <p>ChromaDB'de semantik arama yapılır</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step">
+                        <div class="arch-icon"><i class="fas fa-filter"></i></div>
+                        <h4>3. İlgili Bağlam</h4>
+                        <p>En ilgili 3 doküman seçilir</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step">
+                        <div class="arch-icon"><i class="fas fa-brain"></i></div>
+                        <h4>4. LLM Üretimi</h4>
+                        <p>Gemini API yanıt oluşturur</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step">
+                        <div class="arch-icon"><i class="fas fa-comment-dots"></i></div>
+                        <h4>5. Yanıt</h4>
+                        <p>Kullanıcıya detaylı cevap sunulur</p>
+                    </div>
+                </div>
+
+                <h3 class="tech-title"><i class="fas fa-laptop-code"></i> Kullanılan Teknolojiler</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fas fa-gem"></i>
+                        <h4>Google Gemini API</h4>
+                        <p>Doğal dil üretimi ve yanıt oluşturma</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <h4>ChromaDB</h4>
+                        <p>Vektör veritabanı ve semantik arama</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-vector-square"></i>
+                        <h4>Sentence Transformers</h4>
+                        <p>Metin embedding modeli (all-MiniLM-L6-v2)</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <h4>Flask</h4>
+                        <p>Python web framework</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <h4>HTML/CSS/JS</h4>
+                        <p>Modern ve responsive web arayüzü</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>GitHub</h4>
+                        <p>Versiyon kontrolü ve deployment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-chart-line"></i> Özellikler ve Avantajlar</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Hızlı Yanıt</h4>
+                        <p>Vektör tabanlı arama ile saniyeler içinde ilgili bilgileri bulur</p>
+                    </div>
+                    <div class="advantage-item">
+                        <i class="fas fa-check-double"></i>
+                        <h4>Doğru Bilgi</h4>
+                        <p>RAG mimarisi sayesinde halüsinasyon riski minimize edilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <i class="fas fa-book-open"></i>
+                        <h4>Kaynak Gösterimi</h4>
+                        <p>Her yanıt için kullanılan kaynaklar gösterilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Responsive Tasarım</h4>
+                        <p>Mobil ve masaüstü cihazlarda mükemmel çalışır</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2><i class="fas fa-graduation-cap"></i> Akbank GenAI Bootcamp</h2>
+                <p>
+                    Bu proje, Akbank GenAI Bootcamp programı kapsamında geliştirilmiştir. Bootcamp, 
+                    katılımcılara modern yapay zeka teknolojilerini öğretmeyi ve gerçek dünya problemlerine 
+                    uygulamayı amaçlamaktadır.
+                </p>
+                <div class="bootcamp-info">
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2025</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-university"></i>
+                        <span>Akbank</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>GenAI Bootcamp</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card cta-card">
+                <h2><i class="fas fa-rocket"></i> Hemen Deneyin!</h2>
+                <p>Türkiye'nin harikalarını keşfetmek için chatbot ile sohbet etmeye başlayın.</p>
+                <a href="/chat" class="btn btn-primary btn-large">
+                    <i class="fas fa-comments"></i> Sohbete Başla
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

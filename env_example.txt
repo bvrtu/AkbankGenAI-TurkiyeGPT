@@ -1,0 +1,18 @@
+# Google Gemini API Key
+# Get your API key from: https://ai.google.dev/
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Flask Configuration
+FLASK_APP=app.py
+FLASK_ENV=development
+FLASK_DEBUG=1
+
+# Server Configuration
+HOST=0.0.0.0
+PORT=5000
+
+# KURULUM NOTLARI:
+# 1. Bu dosyayı .env olarak kopyalayın: cp env_example.txt .env
+# 2. GEMINI_API_KEY değerini kendi API key'iniz ile değiştirin
+# 3. API key almak için: https://ai.google.dev/ adresini ziyaret edin
+

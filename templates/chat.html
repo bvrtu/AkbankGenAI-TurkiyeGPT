@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}TürkiyeGPT - Sohbet{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <div class="chat-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div>
+                <h2>Türkiye Turizm Asistanı</h2>
+                <p class="chat-status">
+                    <span class="status-dot"></span> Çevrimiçi
+                </p>
+            </div>
+        </div>
+        <button class="btn-clear" onclick="clearChat()" title="Sohbeti Temizle">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+        <div class="welcome-message">
+            <div class="welcome-icon">
+                <i class="fas fa-hand-sparkles"></i>
+            </div>
+            <h3>Merhaba! Ben Türkiye Turizm Asistanınızım</h3>
+            <p>Türkiye'nin tarihi yerleri, turistik alanları ve doğal güzellikleri hakkında size yardımcı olabilirim.</p>
+            <div class="quick-questions">
+                <p><strong>Örnek sorular:</strong></p>
+                <button class="quick-btn" onclick="sendQuickQuestion(this.getAttribute('data-question'))" data-question="Kapadokya'da balon turu yapılabilir mi?">
+                    Kapadokya balon turu
+                </button>
+                <button class="quick-btn" onclick="sendQuickQuestion(this.getAttribute('data-question'))" data-question="Van Kahvaltısı neden ünlüdür?">
+                    Van Kahvaltısı
+                </button>
+                <button class="quick-btn" onclick="sendQuickQuestion(this.getAttribute('data-question'))" data-question="Nemrut Dağı hakkında bilgi ver">
+                    Nemrut Dağı
+                </button>
+                <button class="quick-btn" onclick="sendQuickQuestion(this.getAttribute('data-question'))" data-question="Göbeklitepe nerededir ve önemi nedir?">
+                    Göbeklitepe
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-input-container">
+        <form id="chatForm" onsubmit="sendMessage(event)">
+            <div class="chat-input-wrapper">
+                <textarea 
+                    id="messageInput" 
+                    class="chat-input" 
+                    placeholder="Mesajınızı yazın..."
+                    rows="1"
+                    onkeydown="handleKeyPress(event)"
+                ></textarea>
+                <button type="submit" class="btn-send" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let isWaiting = false;
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage(event);
+    }
+}
+
+function sendQuickQuestion(question) {
+    document.getElementById('messageInput').value = question;
+    sendMessage(new Event('submit'));
+}
+
+async function sendMessage(event) {
+    event.preventDefault();
+    
+    if (isWaiting) return;
+    
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+    
+    if (!message) return;
+    
+    // Kullanıcı mesajını ekle
+    addMessage(message, 'user');
+    messageInput.value = '';
+    
+    // Typing indicator göster
+    showTyping();
+    isWaiting = true;
+    
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        const data = await response.json();
+        
+        hideTyping();
+        
+        if (data.success) {
+            addMessage(data.response, 'bot', data.sources);
+        } else {
+            addMessage('Üzgünüm, bir hata oluştu: ' + data.error, 'bot', null, true);
+        }
+    } catch (error) {
+        hideTyping();
+        addMessage('Bağlantı hatası. Lütfen tekrar deneyin.', 'bot', null, true);
+    }
+    
+    isWaiting = false;
+}
+
+function addMessage(text, sender, sources = null, isError = false) {
+    const chatMessages = document.getElementById('chatMessages');
+    
+    // Welcome message'ı gizle
+    const welcomeMsg = chatMessages.querySelector('.welcome-message');
+    if (welcomeMsg) {
+        welcomeMsg.style.display = 'none';
+    }
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message ${isError ? 'error-message' : ''}`;
+    
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.innerHTML = sender === 'user' 
+        ? '<i class="fas fa-user"></i>' 
+        : '<i class="fas fa-robot"></i>';
+    
+    const content = document.createElement('div');
+    content.className = 'message-content';
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.innerHTML = formatMessage(text);
+    
+    content.appendChild(bubble);
+    
+    // Kaynakları ekle
+    if (sources && sources.length > 0) {
+        const sourcesDiv = document.createElement('div');
+        sourcesDiv.className = 'message-sources';
+        sourcesDiv.innerHTML = '<i class="fas fa-book"></i> <strong>Kaynaklar:</strong>';
+        
+        const sourcesList = document.createElement('ul');
+        sources.forEach(source => {
+            const li = document.createElement('li');
+            li.innerHTML = `${source.baslik} <span class="source-city">(${source.sehir})</span>`;
+            sourcesList.appendChild(li);
+        });
+        
+        sourcesDiv.appendChild(sourcesList);
+        content.appendChild(sourcesDiv);
+    }
+    
+    const time = document.createElement('div');
+    time.className = 'message-time';
+    time.textContent = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+    content.appendChild(time);
+    
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(content);
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function formatMessage(text) {
+    // Basit markdown formatlama
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\n/g, '<br>');
+}
+
+function showTyping() {
+    document.getElementById('typingIndicator').style.display = 'flex';
+    document.getElementById('sendBtn').disabled = true;
+}
+
+function hideTyping() {
+    document.getElementById('typingIndicator').style.display = 'none';
+    document.getElementById('sendBtn').disabled = false;
+}
+
+async function clearChat() {
+    if (!confirm('Sohbet geçmişini silmek istediğinizden emin misiniz?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/clear', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        if (response.ok) {
+            location.reload();
+        }
+    } catch (error) {
+        alert('Sohbet temizlenirken bir hata oluştu.');
+    }
+}
+
+// Auto-resize textarea
+const textarea = document.getElementById('messageInput');
+textarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+});
+</script>
+{% endblock %}
+

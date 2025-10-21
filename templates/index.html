@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}TürkiyeGPT - Ana Sayfa{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <i class="fas fa-map-marked-alt"></i>
+                Türkiye'yi Keşfet
+            </h1>
+            <p class="hero-subtitle">
+                Yapay zeka destekli turizm asistanınız ile Türkiye'nin tarihi ve doğal güzelliklerini keşfedin
+            </p>
+            <div class="hero-buttons">
+                <a href="/chat" class="btn btn-primary">
+                    <i class="fas fa-comments"></i> Sohbete Başla
+                </a>
+                <a href="/about" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Nasıl Çalışır?
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Özellikler</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>RAG Teknolojisi</h3>
+                <p>Retrieval Augmented Generation ile doğru ve güncel bilgiler</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Geniş Veri Seti</h3>
+                <p>150+ turistik yer, tarihi eser ve doğal güzellik hakkında detaylı bilgi</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Doğal Dil İşleme</h3>
+                <p>Gemini API ile akıcı ve anlamlı konuşmalar</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-location-dot"></i>
+                </div>
+                <h3>Bölge Bazlı Arama</h3>
+                <p>7 coğrafi bölge ve 20+ şehir bilgisi</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>Sohbet Geçmişi</h3>
+                <p>Önceki sorularınızı ve cevapları saklayın</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Kaynak Gösterimi</h3>
+                <p>Her cevap için kullanılan kaynakları görün</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Example Questions Section -->
+<section class="examples">
+    <div class="container">
+        <h2 class="section-title">Örnek Sorular</h2>
+        <div class="examples-grid">
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Nemrut Dağı hakkında ne bilgiler verebilirsin?"</p>
+            </div>
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Kapadokya'da balon turu yapılabilir mi?"</p>
+            </div>
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Van Kahvaltısı nedir, neden ünlüdür?"</p>
+            </div>
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Zeugma Mozaik Müzesi nerededir?"</p>
+            </div>
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Göbeklitepe'nin tarihi önemi nedir?"</p>
+            </div>
+            <div class="example-card">
+                <i class="fas fa-question-circle"></i>
+                <p>"Kaçkar Dağları'nda trekking yapılır mı?"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Hemen Keşfetmeye Başlayın!</h2>
+        <p>Türkiye'nin harikalarını keşfetmek için yapay zeka asistanımızla sohbet edin</p>
+        <a href="/chat" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i> Sohbete Başla
+        </a>
+    </div>
+</section>
+{% endblock %}
+
