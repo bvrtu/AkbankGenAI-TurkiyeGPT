@@ -607,7 +607,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 - 📧 Email: [berrakselcuk12@gmail.com](mailto:berrakselcuk12@gmail.com)
 
 - 🔗 LinkedIn: [https://www.linkedin.com/in/bartu-erdem/](https://linkedin.com/in/bartu-erdem)
-- 🔗 LinkedIn: [https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386/](https://linkedin.com/in/berrak-sel%C3%A7uk-ab481b386])
+- 🔗 LinkedIn: [https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386/](https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386)
 
 - 🐙 GitHub: [https://github.com/bvrtu](https://github.com/bvrtu)
 
