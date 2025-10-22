@@ -438,17 +438,12 @@ python app.py
 
 ### Ana Sayfa
 
-![Ana Sayfa Önizlemesi](https://via.placeholder.com/800x400?text=TürkiyeGPT+Ana+Sayfa)
-
 - Proje özeti ve özellikler
 - Hızlı başlangıç butonları
 - Örnek sorular gösterimi
 
 ### Sohbet Sayfası
 
-![Sohbet Sayfası Önizlemesi](https://via.placeholder.com/800x400?text=TürkiyeGPT+Sohbet)
-
-**Özellikler:**
 - 💬 Gerçek zamanlı mesajlaşma
 - 🤖 Bot avatar ve kullanıcı avatar gösterimi
 - 📚 Kaynak gösterimi (her yanıt için kullanılan belgeler)
@@ -471,57 +466,6 @@ Uygulama, tüm cihazlarda mükemmel çalışır:
 - 📱 Tablet (768px+)
 - 💻 Desktop (1024px+)
 - 🖥️ Large Desktop (1440px+)
-
----
-
-## 🌐 Deployment
-
-### Render ile Deployment
-
-1. **Render.com'da Hesap Oluşturun**
-
-2. **New Web Service Oluşturun**:
-   - Repository'nizi bağlayın
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `gunicorn app:app`
-
-3. **Environment Variables Ekleyin**:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. **Deploy Edin**
-
-### Heroku ile Deployment
-
-```bash
-# Heroku CLI ile login
-heroku login
-
-# Uygulama oluştur
-heroku create turkiyegpt
-
-# Environment variable ekle
-heroku config:set GEMINI_API_KEY=your_api_key_here
-
-# Deploy
-git push heroku main
-
-# Uygulamayı aç
-heroku open
-```
-
-### Docker ile Deployment
-
-```bash
-# Docker image oluştur
-docker build -t turkiyegpt .
-
-# Container çalıştır
-docker run -p 5000:5000 -e GEMINI_API_KEY=your_key turkiyegpt
-```
-
----
 
 ## 🛠️ Kullanılan Teknolojiler
 
@@ -655,13 +599,17 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 ---
 
-## 👨‍💻 Geliştirici
+## 👨‍💻 Geliştiriciler
 
-**Akbank GenAI Bootcamp Katılımcısı**
+**Akbank GenAI Bootcamp Katılımcıları**
 
-📧 Email: [your-email@example.com](mailto:your-email@example.com)  
-🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)  
-🐙 GitHub: [Your GitHub](https://github.com/yourusername)
+- 📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)
+- 📧 Email: [berrakselcuk12@gmail.com](mailto:berrakselcuk12@gmail.com)
+
+- 🔗 LinkedIn: [https://www.linkedin.com/in/bartu-erdem/](https://linkedin.com/in/bartu-erdem)
+- 🔗 LinkedIn: [https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386/](https://linkedin.com/in/berrak-sel%C3%A7uk-ab481b386])
+
+- 🐙 GitHub: [https://github.com/bvrtu](https://github.com/bvrtu)
 
 ---
 
@@ -697,8 +645,10 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 Sorularınız veya önerileriniz için:
 
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-- 💬 GitHub Issues: [Proje Issues](https://github.com/yourusername/AkbankGenAI-TurkiyeGPT/issues)
+- 📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)
+- 📧 Email: [berrakselcuk12@gmail.com](mailto:berrakselcuk12@gmail.com)
+
+- 💬 GitHub Issues: [Proje Issues](https://github.com/bvrtu/AkbankGenAI-TurkiyeGPT/issues)
 
 ---
 
