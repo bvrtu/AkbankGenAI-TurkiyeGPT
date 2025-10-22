@@ -14,7 +14,7 @@
 
 ## 🌐 Live Demo
 
-**🚀 [Canlı Demo - TürkiyeGPT](https://effective-carnival-r9p666956vrhpqr4.github.dev/)**
+**🚀 [Canlı Demo - TürkiyeGPT](https://effective-carnival-r9p666956vrhpqr4-5000.app.github.dev/)**
 
 TürkiyeGPT'yi hemen deneyin! RAG tabanlı turizm asistanı ile Türkiye'nin en güzel yerlerini keşfedin.
 
