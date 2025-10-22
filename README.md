@@ -438,17 +438,12 @@ python app.py
 
 ### Ana Sayfa
 
-![Ana Sayfa Önizlemesi](https://via.placeholder.com/800x400?text=TürkiyeGPT+Ana+Sayfa)
-
 - Proje özeti ve özellikler
 - Hızlı başlangıç butonları
 - Örnek sorular gösterimi
 
 ### Sohbet Sayfası
 
-![Sohbet Sayfası Önizlemesi](https://via.placeholder.com/800x400?text=TürkiyeGPT+Sohbet)
-
-**Özellikler:**
 - 💬 Gerçek zamanlı mesajlaşma
 - 🤖 Bot avatar ve kullanıcı avatar gösterimi
 - 📚 Kaynak gösterimi (her yanıt için kullanılan belgeler)
