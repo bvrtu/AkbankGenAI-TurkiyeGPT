@@ -131,6 +131,12 @@ dmypy.json
 # ChromaDB data
 data/chroma_db/
 
+# GitHub Pages
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
 # IDE
 .vscode/
 .idea/

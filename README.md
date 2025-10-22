@@ -238,14 +238,36 @@ RAG, bir LLM'in (Large Language Model) kendi eğitim verisinin ötesinde, dışa
 - pip (Python paket yöneticisi)
 - Google Gemini API Key ([buradan alın](https://ai.google.dev/))
 
-### Adım 1: Repository'yi Klonlayın
+### Yöntem 1: GitHub Codespaces (Önerilen - Ücretsiz)
+
+1. **GitHub repository'nizde** **"Code"** → **"Codespaces"** tıklayın
+2. **"Create codespace on main"** seçin
+3. **Codespace açıldığında terminal'de:**
+
+```bash
+# Setup script'ini çalıştır
+./setup_codespaces.sh
+
+# Environment variable ayarla
+export GEMINI_API_KEY='your_actual_api_key_here'
+
+# Uygulamayı başlat
+python app.py
+```
+
+4. **Port 5000'i public yapın** (Codespaces'te Ports sekmesinde)
+5. **Public URL** alırsınız: `https://your-codespace-5000.preview.app.github.dev`
+
+### Yöntem 2: Yerel Kurulum
+
+1. **Repository'yi klonlayın:**
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/AkbankGenAI-TurkiyeGPT.git
 cd AkbankGenAI-TurkiyeGPT
 ```
 
-### Adım 2: Virtual Environment Oluşturun
+2. **Virtual Environment oluşturun:**
 
 ```bash
 # Virtual environment oluştur
@@ -258,13 +280,13 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### Adım 3: Bağımlılıkları Yükleyin
+3. **Bağımlılıkları yükleyin:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Adım 4: Environment Variables Ayarlayın
+4. **Environment Variables ayarlayın:**
 
 ```bash
 # env_example.txt dosyasını .env olarak kopyalayın
@@ -280,7 +302,7 @@ cp env_example.txt .env
 3. Ücretsiz API key'inizi oluşturun
 4. `.env` dosyasına ekleyin
 
-### Adım 5: Uygulamayı Çalıştırın
+5. **Uygulamayı çalıştırın:**
 
 ```bash
 python app.py
