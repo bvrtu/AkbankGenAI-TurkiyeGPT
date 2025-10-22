@@ -655,13 +655,13 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 ---
 
-## 👨‍💻 Geliştirici
+## 👨‍💻 Geliştiriciler
 
 **Akbank GenAI Bootcamp Katılımcısı**
 
 📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)  
-🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)  
-🐙 GitHub: [Your GitHub](https://github.com/yourusername)
+🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/bartu-erdem/))  
+🐙 GitHub: [Your GitHub](https://github.com/bvrtu)
 
 ---
 
