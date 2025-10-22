@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Flask uygulamasını oluştur
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.secret_key = secrets.token_hex(16)
 
 # Global RAG instance
@@ -200,4 +200,15 @@ if __name__ == '__main__':
         print("\n  Örnek:")
         print("  export GEMINI_API_KEY='your-api-key-here'")
         print("  python app.py\n")
+
+# Gunicorn için production ayarları
+if __name__ != '__main__':
+    # Production'da RAG instance'ı başlat
+    try:
+        api_key = os.getenv('GEMINI_API_KEY')
+        if api_key:
+            rag_instance = TurkiyeTourismRAG(api_key=api_key)
+            print("✅ RAG Pipeline production'da başlatıldı!")
+    except Exception as e:
+        print(f"✗ RAG Pipeline production'da başlatılamadı: {str(e)}")
 
