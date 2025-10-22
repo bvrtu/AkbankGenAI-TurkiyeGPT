@@ -472,57 +472,6 @@ Uygulama, tüm cihazlarda mükemmel çalışır:
 - 💻 Desktop (1024px+)
 - 🖥️ Large Desktop (1440px+)
 
----
-
-## 🌐 Deployment
-
-### Render ile Deployment
-
-1. **Render.com'da Hesap Oluşturun**
-
-2. **New Web Service Oluşturun**:
-   - Repository'nizi bağlayın
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `gunicorn app:app`
-
-3. **Environment Variables Ekleyin**:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. **Deploy Edin**
-
-### Heroku ile Deployment
-
-```bash
-# Heroku CLI ile login
-heroku login
-
-# Uygulama oluştur
-heroku create turkiyegpt
-
-# Environment variable ekle
-heroku config:set GEMINI_API_KEY=your_api_key_here
-
-# Deploy
-git push heroku main
-
-# Uygulamayı aç
-heroku open
-```
-
-### Docker ile Deployment
-
-```bash
-# Docker image oluştur
-docker build -t turkiyegpt .
-
-# Container çalıştır
-docker run -p 5000:5000 -e GEMINI_API_KEY=your_key turkiyegpt
-```
-
----
-
 ## 🛠️ Kullanılan Teknolojiler
 
 ### Backend
@@ -660,8 +609,8 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 **Akbank GenAI Bootcamp Katılımcısı**
 
 📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)  
-🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/bartu-erdem/))  
-🐙 GitHub: [Your GitHub](https://github.com/bvrtu)
+🔗 LinkedIn: [https://www.linkedin.com/in/bartu-erdem/](https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/bartu-erdem/))  
+🐙 GitHub: [https://github.com/bvrtu](https://github.com/bvrtu)
 
 ---
 
