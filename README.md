@@ -10,7 +10,13 @@
 
 **Akbank GenAI Bootcamp Final Projesi**
 
-[Demo](#-demo) • [Özellikler](#-özellikler) • [Kurulum](#-kurulum) • [Kullanım](#-kullanım) • [Mimari](#-çözüm-mimarisi)
+[Live Demo](#-live-demo) • [Özellikler](#-özellikler) • [Kurulum](#-kurulum) • [Kullanım](#-kullanım) • [Mimari](#-çözüm-mimarisi)
+
+## 🌐 Live Demo
+
+**🚀 [Canlı Demo - TürkiyeGPT](https://effective-carnival-r9p666956vrhpqr4.github.dev/)**
+
+TürkiyeGPT'yi hemen deneyin! RAG tabanlı turizm asistanı ile Türkiye'nin en güzel yerlerini keşfedin.
 
 </div>
 
@@ -18,6 +24,7 @@
 
 ## 📋 İçindekiler
 
+- [Live Demo](#-live-demo)
 - [Proje Hakkında](#-proje-hakkında)
 - [Özellikler](#-özellikler)
 - [Veri Seti](#-veri-seti)
