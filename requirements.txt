@@ -20,6 +20,9 @@ Jinja2==3.1.2
 # Production Server (optional)
 gunicorn==21.2.0
 
+# Vercel specific
+vercel==32.0.0
+
 # Development Tools (optional)
 pytest>=7.4.0
 black>=23.12.0
