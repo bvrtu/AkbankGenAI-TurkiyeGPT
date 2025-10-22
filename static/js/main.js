@@ -107,6 +107,21 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 TürkiyeGPT loaded successfully!');
 });
 
+// Mesaj formatını temizle ve düzenle
+function formatMessage(message) {
+    // Markdown formatlarını temizle
+    let formatted = message
+        .replace(/### /g, '')  // ### başlıkları kaldır
+        .replace(/\*\*(.*?)\*\*/g, '$1')  // **kalın** yazıları düz metin yap
+        .replace(/\*(.*?)\*/g, '$1')  // *italik* yazıları düz metin yap
+        .replace(/`(.*?)`/g, '$1')  // `kod` bloklarını düz metin yap
+        .replace(/#{1,6} /g, '')  // Tüm başlık işaretlerini kaldır
+        .replace(/---+/g, '')  // Çizgileri kaldır
+        .replace(/\n{3,}/g, '\n\n');  // Çoklu satır sonlarını tek yap
+    
+    return formatted;
+}
+
 // Utility function to show notifications (can be used in future)
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');

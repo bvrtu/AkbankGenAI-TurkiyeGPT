@@ -96,8 +96,8 @@ def api_chat():
                 for source in msg['sources']:
                     previous_titles.add(source.get('baslik', ''))
         
-        # RAG pipeline ile yanıt üret (10 sonuç getir şehir sorularında)
-        n_results = 12 if any(word in user_message.lower() for word in ['gezebilirim', 'nereleri', 'başka', 'daha', 'diğer', 'antik kentler', 'gezilecek']) else 8
+        # RAG pipeline ile yanıt üret (hız için optimize)
+        n_results = 6 if any(word in user_message.lower() for word in ['gezebilirim', 'nereleri', 'başka', 'daha', 'diğer', 'antik kentler', 'gezilecek']) else 4
         result = rag_instance.query(user_message, n_results=n_results, exclude_titles=list(previous_titles))
         
         # Chat history'ye ekle

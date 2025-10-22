@@ -657,10 +657,23 @@ body {
 }
 
 .feature-list li {
-    padding: 0.75rem 0;
+    padding: 0.5rem 0; /* Padding'i azalt */
     display: flex;
-    align-items: center;
+    align-items: baseline; /* Baseline hizalama - daha iyi */
     gap: 0.75rem;
+    line-height: 1.4; /* Biraz daha rahat satır yüksekliği */
+    font-size: 1rem; /* Sabit font boyutu */
+}
+
+.feature-list li strong {
+    display: inline !important; /* Kalın yazıların inline kalmasını sağla */
+    margin: 0 !important; /* Fazla marginleri kaldır */
+    padding: 0 !important; /* Fazla paddingleri kaldır */
+    white-space: normal !important; /* Metnin doğal olarak sarılmasını sağla */
+    line-height: inherit !important; /* Ana elementin line-height'ını kullan */
+    font-weight: 700 !important; /* Kalınlığı koru */
+    vertical-align: baseline !important; /* Dikey hizalamayı düzelt */
+    font-size: inherit !important; /* Font boyutunu eşitle */
 }
 
 .feature-list i {
@@ -885,6 +898,175 @@ body {
     50% {
         opacity: 0.5;
     }
+}
+
+/* ===========================
+   CHAT MESSAGE FORMATTING
+   =========================== */
+.message-content {
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Markdown formatlarını temizle */
+.message-content h1,
+.message-content h2,
+.message-content h3,
+.message-content h4,
+.message-content h5,
+.message-content h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.8rem 0 0.4rem 0;
+    color: var(--dark-bg);
+}
+
+.message-content strong,
+.message-content b {
+    font-weight: 600;
+    color: var(--dark-bg);
+}
+
+.message-content em,
+.message-content i {
+    font-style: italic;
+}
+
+.message-content ul,
+.message-content ol {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+}
+
+.message-content li {
+    margin: 0.3rem 0;
+}
+
+.message-content p {
+    margin: 0.6rem 0;
+}
+
+/* Numaralı listeler için özel stil */
+.message-content ol {
+    counter-reset: item;
+}
+
+.message-content ol li {
+    display: block;
+    margin: 0.4rem 0;
+    padding-left: 0.5rem;
+}
+
+.message-content ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Emoji ve özel karakterler için stil */
+.message-content {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Code blokları için stil */
+.message-content code {
+    background: #f1f5f9;
+    color: #e11d48;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* Güçlü vurgular için */
+.message-content strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* İtalik vurgular için */
+.message-content em {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Liste öğeleri için daha iyi görünüm */
+.message-content ul li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.message-content ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Paragraflar arası boşluk */
+.message-content p {
+    margin: 0.8rem 0;
+}
+
+/* Özel emoji boyutları */
+.message-content {
+    font-size: 1.1rem;
+}
+
+/* Bot mesajları için özel vurgular */
+.bot-message .message-content {
+    color: #374151;
+}
+
+.bot-message .message-content strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.bot-message .message-content em {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Emoji'ler için özel boyut */
+.message-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Özel karakterler ve semboller - ilk harf efekti kaldırıldı */
+
+/* ===========================
+   GRID LAYOUTS
+   =========================== */
+.tech-grid-second {
+    margin-top: 1.5rem;
+}
+
+.advantages-grid-second {
+    margin-top: 1.5rem;
+}
+
+.architecture-diagram-second {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Alt satır için boşluğu daha da azalt */
+}
+
+.architecture-diagram-second .arch-step {
+    flex: 0 0 auto;
+    min-width: 120px; /* Adımların minimum genişliği */
+}
+
+.architecture-diagram-second .arch-arrow {
+    margin: 0 0.1rem; /* Alt satır okunun boşluğunu daha da azalt */
+    font-size: 1.2rem;
 }
 
 /* ===========================

@@ -195,11 +195,16 @@ function addMessage(text, sender, sources = null, isError = false) {
 }
 
 function formatMessage(text) {
-    // Basit markdown formatlama
+    // HTML formatlarını koru ve düzenle
     return text
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        .replace(/\n/g, '<br>');
+        .replace(/### /g, '')  // ### başlıkları kaldır
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **kalın** -> <strong>
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')  // *italik* -> <em>
+        .replace(/`(.*?)`/g, '<code>$1</code>')  // `kod` -> <code>
+        .replace(/#{1,6} /g, '')  // Tüm başlık işaretlerini kaldır
+        .replace(/---+/g, '')  // Çizgileri kaldır
+        .replace(/\n{3,}/g, '\n\n')  // Çoklu satır sonlarını tek yap
+        .replace(/\n/g, '<br>');  // Satır sonlarını <br> yap
 }
 
 function showTyping() {

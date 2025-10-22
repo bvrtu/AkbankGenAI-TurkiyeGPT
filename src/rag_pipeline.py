@@ -200,10 +200,10 @@ class TurkiyeTourismRAG:
             
             # Eğer şehir tespit edildiyse, önce o şehirden kayıtları getir
             if detected_city:
-                # Şehre özel filtreleme (daha fazla sonuç getir)
+                # Şehre özel filtreleme (hız için optimize)
                 city_results = self.collection.query(
                     query_texts=[query],
-                    n_results=min(n_results * 2, 20),  # Daha fazla getir, sonra filtrele
+                    n_results=min(n_results + 2, 8),  # Hız için daha az
                     where={"sehir": detected_city}
                 )
                 
@@ -221,10 +221,10 @@ class TurkiyeTourismRAG:
                                 'priority': 'high'  # Şehir eşleşmesi yüksek öncelik
                             })
             
-            # Genel semantic search yap
+            # Genel semantic search yap (hız için optimize)
             general_results = self.collection.query(
                 query_texts=[query],
-                n_results=n_results * 2  # Daha fazla getir, sonra filtrele
+                n_results=n_results + 2  # Hız için daha az
             )
             
             if general_results['documents'] and len(general_results['documents']) > 0:
@@ -280,29 +280,30 @@ class TurkiyeTourismRAG:
             # Kaç kaynak olduğunu belirt
             kaynak_sayisi = len(context_docs)
             
-            # Prompt oluştur
+            # Prompt oluştur (hız + görsel optimizasyon)
             prompt = f"""
 Sen Türkiye turizm konusunda uzman, yardımsever ve bilgili bir asistansın. 
 
 Aşağıdaki veritabanından alınan bilgileri kullanarak kullanıcının sorusuna DETAYLI, BİLGİLENDİRİCİ ve DOSTANE bir şekilde cevap ver.
 
-=== VERİTABANINDAN ALINAN BİLGİLER ({kaynak_sayisi} KAYNAK) ===
+VERİTABANINDAN ALINAN BİLGİLER ({kaynak_sayisi} KAYNAK):
 {context_text}
 
-=== KULLANICI SORUSU ===
-{query}
+KULLANICI SORUSU: {query}
 
-=== ÇOK ÖNEMLİ KURALLAR ===
+ÖNEMLİ KURALLAR:
 1. SADECE yukarıdaki veritabanı bilgilerini kullan
-2. Veritabanında {kaynak_sayisi} kaynak var - MUTLAKA HEPSİNİ KULLAN ve bahset
+2. Veritabanında {kaynak_sayisi} kaynak var - HEPSİNİ KULLAN ve bahset
 3. "İzmirdeki antik kentler" gibi sorularda, veritabanındaki TÜM antik kentleri say
 4. Bir şehirle ilgili sorularda, o şehirle ilgili BÜTÜN yerleri listele
 5. Her yerin adını, özelliklerini, tarihi önemini ve pratik bilgilerini (ziyaret saatleri, ücret) detaylı belirt
 6. Eğer veritabanında bilgi yoksa, "Bu konu hakkında şu anda bilgim yok" de
-7. Numaralı liste veya madde işaretleri kullanarak düzenli ve okunaklı yaz
-8. Hiçbir kaynağı atlama, hepsinden bahset!
+7. HTML formatı kullan: <strong>kalın</strong>, <em>italik</em>, <br> satır sonu
+8. Emojiler kullan: 🏛️ antik kentler, 🏔️ doğa, 🏖️ plaj, 🍽️ yemek, ⏰ saat, 💰 ücret, 📍 konum
+9. Numaralı liste veya madde işaretleri kullanarak düzenli yaz
+10. Hiçbir kaynağı atlama, hepsinden bahset!
 
-=== CEVAP ===
+CEVAP:
 """
             
             # Gemini'den yanıt al

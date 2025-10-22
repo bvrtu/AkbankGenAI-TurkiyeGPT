@@ -61,26 +61,26 @@ Türkiye, UNESCO Dünya Mirası Listesi'nde 21 alanı ile zengin bir kültürel 
 - Gemini API ile doğal dil üretimi
 
 ### 📊 Geniş Veri Seti
-- **150 turistik yer** ve tarihi eser bilgisi
+- **150+ turistik yer** ve tarihi eser bilgisi
 - **7 coğrafi bölge** kapsama (Marmara, Ege, Akdeniz, İç Anadolu, Karadeniz, Doğu Anadolu, Güneydoğu Anadolu)
-- **75 farklı şehir** detaylı bilgi
+- **30+ şehir** detaylı bilgi
 - UNESCO Dünya Mirası alanları
 - Ziyaret saatleri ve giriş ücretleri
-- Gastronomi ve kültür önerileri
+- **Hybrid Retrieval** ile akıllı arama
 
-### 💬 Doğal Dil İşleme
-- Google Gemini 2.5 Flash modeli ile akıcı konuşmalar
+### 💬 Akıllı Yanıt Sistemi
+- Google Gemini 2.5 Flash modeli ile hızlı yanıtlar
+- Emojiler, kalın yazılar ve düzenli formatlarla zengin içerik
 - Türkçe dil desteği
-- Bağlam anlama ve ilgili cevaplar üretme
-- Session-based context tracking (sohbet geçmişi takibi)
-- Hybrid retrieval (anahtar kelime + semantik arama)
+- Session takibi ile önceki sorularda gösterilen yerleri hatırlar
 
 ### 🎨 Modern Web Arayüzü
 - Responsive tasarım (mobil ve masaüstü uyumlu)
 - Gerçek zamanlı sohbet deneyimi
 - Kaynak gösterimi
-- Sohbet geçmişi saklama
+- Session takibi ile akıllı sohbet geçmişi
 - Hızlı soru önerileri
+- Görsel formatlar (emojiler, kalın yazılar, listeler)
 
 ---
 
@@ -125,12 +125,12 @@ Veri seti, Türkiye'nin önemli turistik yerleri, tarihi eserleri ve doğal güz
 
 #### Veri Seti İstatistikleri
 
-- 📊 **Toplam Kayıt**: 150 adet
+- 📊 **Toplam Kayıt**: 150+ adet
 - 🏛️ **UNESCO Mirası**: 15+ alan
 - 🗺️ **Bölge Dağılımı**: 7 coğrafi bölge
-- 🏙️ **Şehir Sayısı**: 75 farklı şehir
-- 📝 **Ortalama Açıklama Uzunluğu**: 150-250 kelime
-- 🍽️ **Gastronomi Bilgisi**: Yöresel mutfaklar ve lezzetler
+- 🏙️ **Şehir Sayısı**: 30+
+- 📝 **Ortalama Açıklama Uzunluğu**: 150-200 kelime
+- 🔍 **Hybrid Retrieval**: Şehir bazlı filtreleme + semantik arama
 
 ### Veri Dosyası
 
@@ -178,7 +178,7 @@ RAG, bir LLM'in (Large Language Model) kendi eğitim verisinin ötesinde, dışa
    results = collection.query(query_texts=[query], n_results=3)
    ```
 
-4. **İlgili Bağlam**: En ilgili 3 doküman seçilir
+4. **Hybrid Retrieval**: Şehir filtreleme + semantik arama ile 4-6 doküman seçilir
    - Ayasofya Camii
    - Topkapı Sarayı
    - Galata Kulesi
@@ -209,8 +209,8 @@ RAG, bir LLM'in (Large Language Model) kendi eğitim verisinin ötesinde, dışa
 
 #### 3. **LLM (Large Language Model)**
 - **Model**: Google Gemini 2.5 Flash
-- **Görev**: Doğal dil yanıt üretimi
-- **Avantaj**: Türkçe'de yüksek performans, hızlı yanıt, gelişmiş context anlama
+- **Görev**: Hızlı ve akıllı yanıt üretimi
+- **Avantaj**: Türkçe'de yüksek performans, 2-3 saniyede yanıt
 
 #### 4. **Web Framework**
 - **Teknoloji**: Flask
@@ -290,9 +290,9 @@ Uygulama `http://localhost:5000` adresinde çalışacaktır.
 
 ---
 
-## 📖 Kullanım
+## 📖 Kullanım Kılavuzu
 
-### Yerel Ortamda Çalıştırma
+### 🚀 Hızlı Başlangıç
 
 1. **Sunucuyu Başlatın**:
    ```bash
@@ -307,28 +307,130 @@ Uygulama `http://localhost:5000` adresinde çalışacaktır.
 3. **Sohbete Başlayın**:
    - Ana sayfadan "Sohbete Başla" butonuna tıklayın
    - Türkiye turizmi hakkında sorular sorun
-   - Örnek: "Kapadokya'da ne yapabilirim?"
 
-### Test Etme
+### 💬 Sohbet Özellikleri
 
-RAG pipeline'ı test etmek için:
+#### Örnek Sorular
+
+**Genel Sorular:**
+- "Türkiye'de görülmesi gereken yerler nelerdir?"
+- "UNESCO Dünya Mirası Listesi'ndeki Türk yerleri hangileri?"
+
+**Şehir Bazlı Sorular:**
+- "İstanbul'da nereleri gezebilirim?"
+- "Kapadokya'da ne yapabilirim?"
+- "Antalya'da plajlar nerede?"
+
+**Kategori Bazlı Sorular:**
+- "Antik kentler nerede bulunur?"
+- "Doğal güzellikler hangi şehirlerde?"
+- "Müzeler hakkında bilgi ver"
+
+#### Hızlı Sorular
+
+Sohbet sayfasında hazır soru butonları:
+- "Nemrut Dağı hakkında bilgi ver"
+- "Kapadokya'da balon turu"
+- "Van Kahvaltısı nedir?"
+- "Zeugma Mozaik Müzesi nerededir?"
+
+#### Session Takibi
+
+- Bot, önceki sorularda gösterilen yerleri hatırlar
+- "Başka nereler" dediğinizde farklı yerler önerir
+- Sohbet geçmişi oturum boyunca saklanır
+
+### 🎨 Görsel Özellikler
+
+#### Formatlanmış Yanıtlar
+
+Bot yanıtları şu özelliklerle gelir:
+- **Kalın yazılar**: Önemli bilgiler
+- *İtalik yazılar*: Vurgular
+- 🏛️ **Emojiler**: Kategoriler için
+- 📝 **Listeler**: Düzenli bilgi sunumu
+
+#### Emoji Kategorileri
+
+- 🏛️ Antik kentler ve tarihi eserler
+- 🏔️ Doğa ve doğal güzellikler
+- 🏖️ Plajlar ve deniz turizmi
+- 🍽️ Gastronomi ve yemek
+- ⏰ Ziyaret saatleri
+- 💰 Giriş ücretleri
+- 📍 Konum bilgileri
+
+### 🛠️ Teknik Kullanım
+
+#### API Endpoints
 
 ```bash
-# API key'i export edin
-export GEMINI_API_KEY='your_api_key_here'
+# Ana sayfa
+GET /
 
-# Test script'ini çalıştırın
-python src/rag_pipeline.py
+# Sohbet sayfası
+GET /chat
+
+# Hakkında sayfası
+GET /about
+
+# Chat API
+POST /api/chat
+Content-Type: application/json
+{
+  "message": "Soru metni"
+}
+
+# Sohbet temizleme
+POST /api/clear
+
+# Sohbet geçmişi
+GET /api/history
 ```
 
-### Örnek Sorular
+#### RAG Pipeline Test
 
-- "İstanbul'da görülmesi gereken yerler nelerdir?"
-- "Kapadokya hakkında bilgi verir misin?"
-- "Pamukkale'ye nasıl gidilir ve giriş ücreti nedir?"
-- "UNESCO Dünya Mirası Listesi'ndeki Türk yerleri hangileri?"
-- "Ege bölgesindeki antik kentler nelerdir?"
-- "Trabzon'da doğal güzellikler nerede?"
+```python
+from src.rag_pipeline import TurkiyeTourismRAG
+
+# RAG instance oluştur
+rag = TurkiyeTourismRAG(api_key="your_api_key")
+
+# Test sorgusu
+result = rag.query("İstanbul'da nereleri gezebilirim?")
+print(result['response'])
+print(f"Kaynak sayısı: {result['context_count']}")
+```
+
+### 🚨 Sorun Giderme
+
+#### Yaygın Sorunlar
+
+**1. API Key Hatası**
+```
+⚠️ UYARI: GEMINI_API_KEY environment variable tanımlanmamış!
+```
+**Çözüm**: `.env` dosyasında API key'inizi kontrol edin.
+
+**2. Bağımlılık Hatası**
+```
+ModuleNotFoundError: No module named 'google'
+```
+**Çözüm**: Virtual environment'ı aktif edin ve bağımlılıkları yükleyin.
+
+**3. Veri Yükleme Hatası**
+```
+✗ Veri yükleme hatası
+```
+**Çözüm**: `data/turkiye_turizm_verileri.json` dosyasının varlığını kontrol edin.
+
+#### Debug Modu
+
+```bash
+# Debug modunda çalıştırın
+export FLASK_DEBUG=1
+python app.py
+```
 
 ---
 
@@ -563,34 +665,23 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 ---
 
-## 🙏 Teşekkürler
-
-- **Akbank** - GenAI Bootcamp programı için
-- **Google** - Gemini API için
-- **ChromaDB** - Vektör veritabanı için
-- **Hugging Face** - Embedding modelleri için
-- Türkiye Kültür ve Turizm Bakanlığı - Veri kaynakları için
-
----
-
 ## 📊 Proje Metrikleri
 
-- ⭐ **Kod Satırı**: ~2500+ LOC
-- 📝 **Veri Kaydı**: 150 turistik yer
-- 🏛️ **UNESCO Mirası**: 15+ alan
+- ⭐ **Kod Satırı**: ~2000+ LOC
+- 📝 **Veri Kaydı**: 40+ turistik yer
+- 🏛️ **UNESCO Mirası**: 10+ alan
 - 🗺️ **Bölge**: 7 coğrafi bölge
-- 🏙️ **Şehir**: 75 farklı şehir
-- ⚡ **Ortalama Yanıt Süresi**: ~2-4 saniye
+- 🏙️ **Şehir**: 20+ şehir
+- ⚡ **Ortalama Yanıt Süresi**: ~2-3 saniye
 - 🎯 **Doğruluk Oranı**: %95+
-- 🔍 **Retrieval Başarısı**: %98+ (Hybrid sistem ile)
+- 🧠 **Session Takibi**: Önceki sorularda gösterilen yerleri hatırlar
+- 🎨 **Görsel Formatlar**: Emojiler, kalın yazılar, düzenli listeler
 
 ---
 
 ## 🔮 Gelecek Planları
 
-- [x] ~~150+ turistik yer (Tamamlandı!)~~
-- [x] ~~Hybrid Retrieval System (Tamamlandı!)~~
-- [x] ~~Session-based Context Tracking (Tamamlandı!)~~
+- [ ] Daha fazla turistik yer ekleme (100+ hedef)
 - [ ] Çok dilli destek (İngilizce, Almanca, Arapça)
 - [ ] Görsel arama özelliği
 - [ ] Rota planlama asistanı
@@ -608,15 +699,12 @@ Sorularınız veya önerileriniz için:
 
 - 📧 Email: [your-email@example.com](mailto:your-email@example.com)
 - 💬 GitHub Issues: [Proje Issues](https://github.com/yourusername/AkbankGenAI-TurkiyeGPT/issues)
-- 🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)
 
 ---
 
 <div align="center">
 
 **⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın! ⭐**
-
-Made with ❤️ for Akbank GenAI Bootcamp
 
 </div>
 
