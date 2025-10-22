@@ -659,7 +659,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 **Akbank GenAI Bootcamp Katılımcısı**
 
-📧 Email: [your-email@example.com](mailto:your-email@example.com)  
+📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)  
 🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)  
 🐙 GitHub: [Your GitHub](https://github.com/yourusername)
 
@@ -697,8 +697,8 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 Sorularınız veya önerileriniz için:
 
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-- 💬 GitHub Issues: [Proje Issues](https://github.com/yourusername/AkbankGenAI-TurkiyeGPT/issues)
+- 📧 Email: [bartuerdem7153@gmail.com](mailto:bartuerdem7153@gmail.com)
+- 💬 GitHub Issues: [Proje Issues](https://github.com/bvrtu/AkbankGenAI-TurkiyeGPT/issues)
 
 ---
 
