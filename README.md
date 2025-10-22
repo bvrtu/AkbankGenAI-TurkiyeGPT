@@ -632,6 +632,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 - 🔗 LinkedIn: [https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386/](https://www.linkedin.com/in/berrak-sel%C3%A7uk-ab481b386)
 
 - 🐙 GitHub: [https://github.com/bvrtu](https://github.com/bvrtu)
+- 🐙 GitHub: [https://github.com/berrakselcuk](https://github.com/berrakselcuk)
 
 ---
 
